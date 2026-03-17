@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scientific Notation Scanner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne+Mono&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Background decorative gradient blobs -->
+  <div class="bg-deco">
+    <div class="gradient-blob gradient-blob-1"></div>
+    <div class="gradient-blob gradient-blob-2"></div>
+    <div class="gradient-blob gradient-blob-3"></div>
+  </div>
+
+  <!-- Logo/Branding di kiri atas -->
+  <div class="logo-brand" id="logo-brand">
+    <div class="logo-icon">EN</div>
+    <div class="logo-text">
+      <div class="logo-name">Eka Putra</div>
+      <div class="logo-nim">241011060052</div>
+    </div>
+  </div>
+
+  <main class="wrapper">
+
+    <!-- Header -->
+    <header class="site-header" id="site-header">
+      <div class="header-badge">Math Tool</div>
+      <h1 class="site-title">
+        Scientific<br>
+        <em>Notation</em>
+        <span class="title-accent">Scanner</span>
+      </h1>
+      <p class="site-desc">Masukkan angka untuk mendeteksi apakah itu notasi ilmiah</p>
+    </header>
+
+    <!-- Main card -->
+    <div class="card" id="main-card">
+
+      <!-- Input section -->
+      <section class="card-input">
+        <label class="field-label" for="main-input">Input Number</label>
+        <div class="input-row" id="input-row">
+          <input
+            type="text"
+            id="main-input"
+            class="main-input"
+            placeholder="cth: 3.5e4 atau 7.51e-9"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="run-btn" id="run-btn" onclick="runScanner()">
+            <span class="btn-text">RUN</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Divider -->
+      <div class="card-divider"></div>
+
+      <!-- Result section -->
+      <section class="card-result" id="result-section">
+        <div class="result-left">
+          <span class="field-label">Hasil Deteksi</span>
+          <div class="result-badge-wrap">
+            <div class="result-badge" id="result-badge">Menunggu input...</div>
+          </div>
+          <div class="result-sub" id="result-sub"></div>
+        </div>
+        <div class="result-right">
+          <div class="verdict" id="verdict">?</div>
+        </div>
+      </section>
+
+      <!-- Divider -->
+      <div class="card-divider"></div>
+
+      <!-- Examples section -->
+      <section class="card-examples">
+        <div class="examples-col">
+          <div class="ex-label ex-valid">✓ Valid</div>
+          <div class="ex-chips" id="chips-valid">
+            <span class="chip chip-v" onclick="tryExample('3e2')">3e2</span>
+            <span class="chip chip-v" onclick="tryExample('7.51e-9')">7.51e-9</span>
+            <span class="chip chip-v" onclick="tryExample('3.5e4')">3.5e4</span>
+            <span class="chip chip-v" onclick="tryExample('-5.3e4')">-5.3e4</span>
+            <span class="chip chip-v" onclick="tryExample('9.87e2')">9.87e2</span>
+          </div>
+        </div>
+        <div class="examples-col">
+          <div class="ex-label ex-invalid">✗ Tidak valid</div>
+          <div class="ex-chips" id="chips-invalid">
+            <span class="chip chip-x" onclick="tryExample('300')">300</span>
+            <span class="chip chip-x" onclick="tryExample('4321.768')">4321.768</span>
+            <span class="chip chip-x" onclick="tryExample('0.2')">0.2</span>
+            <span class="chip chip-x" onclick="tryExample('10')">10</span>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.card -->
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      Format: <code>a.bce±n</code> &nbsp;·&nbsp; digit pertama 1–9 &nbsp;·&nbsp; tekan Enter atau klik RUN
+    </footer>
+
+  </main>
+
+  <!-- Modal About Project -->
+  <div class="modal" id="about-modal">
+    <div class="modal-overlay" onclick="closeAboutModal()"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>About This Project</h2>
+        <button class="modal-close" onclick="closeAboutModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="about-item">
+          <div class="about-label">Creator</div>
+          <div class="about-value">Eka Putra Natanael</div>
+        </div>
+        <div class="about-item">
+          <div class="about-label">Student ID (NIM)</div>
+          <div class="about-value">241011060052</div>
+        </div>
+        <div class="about-item">
+          <div class="about-label">Project</div>
+          <div class="about-value">Scientific Notation Scanner</div>
+        </div>
+        <div class="about-item">
+          <div class="about-label">Description</div>
+          <div class="about-value">
+            Aplikasi untuk mendeteksi dan mengkonversi notasi ilmiah dengan antarmuka yang modern dan responsif.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
